@@ -1,0 +1,1 @@
+INSERT INTO burgers (`name`) VALUES ('The Big Burger');
