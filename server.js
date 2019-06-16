@@ -1,6 +1,6 @@
 // Dependencies
 var express = require("express");
-var routes = require("./controllers/controller")
+var routes = require("./routes/html-routes")
 var exphbs = require("express-handlebars");
 
 var app = express();

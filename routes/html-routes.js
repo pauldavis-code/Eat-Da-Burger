@@ -8,7 +8,7 @@ router.get('/', function(req, res) {
   let result = orm.allLoad('burgers')
   result.then((data) => {
     res.render('index', { allBurgers: data })
-  })
-})
+  });
+});
 
 module.exports = router;

@@ -6,7 +6,6 @@ var orm = {
       let queryString = "SELECT * FROM ??"
       connection.query(queryString, table, function(err, data) {
         if (err) throw err;
-        console.log(data)
         resolve(data)
       })
     })
