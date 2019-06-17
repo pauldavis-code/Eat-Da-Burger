@@ -1,5 +1,21 @@
 <div class="mb-4 mt-4">
   {{#each allBurgers}}
     <div class="mt-2 mb-2">{{this.id}}. {{this.name}}</div>
+    <span>
+      <button class="eat btn btn-secondary" data-id="{{this.id}}">Nom nom</button>
+    </span>
   {{/each}}
 </div>
+
+<script>
+  $('.eat').on('click', function(event) {
+    event.preventDefault();
+    console.log($(this).attr('data-id'))
+    let selectedId = $(this).attr('data-id');
+    
+    $.ajax('/api/burgers/' + selectedId, {
+      type: 'DELETE'
+    }).then( location.reload() )
+  })
+
+</script>

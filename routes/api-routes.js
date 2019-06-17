@@ -14,4 +14,10 @@ router.post('/api/burgers', function(req, res) {
   })
 });
 
+router.delete('/api/burgers/:id', (req, res) => {
+  let deleted = orm.delete(req.params.id)
+  deleted.then((data) => {
+  })
+})
+
 module.exports = router;

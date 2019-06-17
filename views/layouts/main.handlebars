@@ -55,9 +55,7 @@ $('#addBurgerBtn').on('click', function(event) {
 	$.ajax('/api/burgers', {
 		type: "POST",
 		data: newBurger
-	}).then(
-		
-	)
+	}).then( location.reload() )
 });
 
 </script>
