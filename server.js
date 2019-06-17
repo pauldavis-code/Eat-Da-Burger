@@ -1,6 +1,7 @@
 // Dependencies
 var express = require("express");
-var routes = require("./routes/html-routes")
+var htmlRoutes = require("./routes/html-routes")
+var apiRoutes = require('./routes/api-routes')
 var exphbs = require("express-handlebars");
 
 var app = express();
@@ -13,7 +14,9 @@ app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.use(routes);
+app.use(htmlRoutes);
+app.use(apiRoutes);
+
 
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
