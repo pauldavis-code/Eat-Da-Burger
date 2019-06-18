@@ -19,9 +19,9 @@ var orm = {
       })
     })
   },
-  delete: function(selectedId) {
+  update: function(selectedId) {
     return new Promise( (resolve, reject) => {
-      let queryString = "DELETE FROM burgers WHERE id = ?"
+      let queryString = "UPDATE burgers SET eaten=true WHERE id=?"
       connection.query(queryString, selectedId, function(err, data) {
         if (err) throw err;
         resolve(data);

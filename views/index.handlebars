@@ -1,9 +1,23 @@
-<div class="mb-4 mt-4">
+<div class="col-5 mb-4 mt-4">
+  <div class="mb-2" style="font-weight: bold">Burgers to be eaten</div>
   {{#each allBurgers}}
-    <div class="mt-2 mb-2">{{this.id}}. {{this.name}}</div>
+    {{#unless eaten}}
     <span>
-      <button class="eat btn btn-secondary" data-id="{{this.id}}">Nom nom</button>
+        <div class="mt-2 mb-2">{{this.id}}. {{this.name}}</div>
     </span>
+      <span>
+        <button class="eat btn btn-secondary" data-id="{{this.id}}">Nom nom</button>
+      </span>
+    {{/unless}}
+  {{/each}}
+</div>
+
+<div class="col-5 mb-4 mt-4">
+  <div class="mb-2" style="font-weight: bold">Burgers eaten</div>
+  {{#each allBurgers}}
+    {{#if eaten}}
+      <div class="mt-2 mb-2">{{this.id}}. {{this.name}}</div>
+    {{/if}}
   {{/each}}
 </div>
 
@@ -12,10 +26,13 @@
     event.preventDefault();
     console.log($(this).attr('data-id'))
     let selectedId = $(this).attr('data-id');
+    let eat = {
+      eaten: 1
+    }
     
     $.ajax('/api/burgers/' + selectedId, {
-      type: 'DELETE'
+      type: 'PUT',
+      data: eat
     }).then( location.reload() )
-  })
-
+  })cl
 </script>
