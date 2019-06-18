@@ -6,7 +6,7 @@
         <div class="mt-2 mb-2">{{this.id}}. {{this.name}}</div>
     </span>
       <span>
-        <button class="eat btn btn-secondary" data-id="{{this.id}}">Nom nom</button>
+        <button class="eat btn btn-danger" data-id="{{this.id}}">Nom nom</button>
       </span>
     {{/unless}}
   {{/each}}
@@ -16,7 +16,7 @@
   <div class="mb-2" style="font-weight: bold">Burgers eaten</div>
   {{#each allBurgers}}
     {{#if eaten}}
-      <div class="mt-2 mb-2">{{this.id}}. {{this.name}}</div>
+      <div style="text-decoration: line-through" class="mt-2 mb-2">{{this.id}}. {{this.name}}</div>
     {{/if}}
   {{/each}}
 </div>
@@ -34,5 +34,5 @@
       type: 'PUT',
       data: eat
     }).then( location.reload() )
-  })cl
+  })
 </script>

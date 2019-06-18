@@ -13,6 +13,8 @@
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
 		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
 	</script>
+	<script src="/js/burger.js"></script>
+
 	<title>Eat-Da-Burger!</title>
 </head>
 
@@ -40,7 +42,7 @@
 					<input id="addBurgerName" type="text" class="form-control" placeholder="Add a burger.."
 						aria-describedby="button-addon2">
 					<div class="input-group-append">
-						<button id="addBurgerBtn" class="btn btn-outline-primary" type="submit" id="button-addon2">Add
+						<button id="addBurgerBtn" class="btn btn-warning" type="submit">Add
 							burger</button>
 					</div>
 				</div>
@@ -48,25 +50,25 @@
 		</div>
 		<div class="col-1"></div>
 
-
-
 	</div>
 
-	{{!-- <script src="../../public/burger.js" type="text/javascript"> --}}
-
-	<script>
-		$('#addBurgerBtn').on('click', function (event) {
-			event.preventDefault();
-			let newBurger = {
-				name: $('#addBurgerName').val().trim()
-			}
-			$.ajax('/api/burgers', {
-				type: "POST",
-				data: newBurger
-			}).then(location.reload())
-		});
-	</script>
-
 </body>
+
+<script>
+
+	$('#addBurgerBtn').on('click', function (event) {
+		console.log('connected')
+		event.preventDefault();
+		let newBurger = {
+			name: $('#addBurgerName').val().trim()
+		}
+		$.ajax('/api/burgers', {
+			type: "POST",
+			data: newBurger
+		}).then(
+			location.reload())
+	});
+
+</script>
 
 </html>

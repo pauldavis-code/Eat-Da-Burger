@@ -9,7 +9,7 @@ router.post('/api/burgers', function(req, res) {
   results.then((data) => {
     let load = orm.allLoad()
     load.then((allBurgers) => {
-      return res.end()
+      // return res.end()
     })
   })
 });
